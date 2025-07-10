@@ -8,6 +8,7 @@ import Goals from "./pages/dashboard/Goals"; // make sure this exists
 import Workouts from "./pages/dashboard/Workouts"; // make sure this exists
 import Nutrition from "./pages/dashboard/Nutrition"; // make sure this exists
 import Measuremnts from "./pages/dashboard/MeasurementsView"; // make sure this exists  
+import Profile from "./pages/dashboard/Profile";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="profile" element={<Profile />} />
         <Route path="summary" element={<Summary />} />
         <Route path="goals" element={<Goals />} />
         <Route path="workouts" element={<Workouts />} />
