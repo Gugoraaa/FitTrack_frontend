@@ -9,16 +9,19 @@ export default function ProfileView() {
     id: 0,
     username: "",
     created_at: "",
-    calorieGoal: 2000,
+    daily_calorie_goal: 0,
   });
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
+    console.log("Stored user:", storedUser);
     setUser(storedUser);
+    console.log(user.id);
   }, []);
 
+  
   const handleGoalUpdate = (newGoal: number) => {
-    setUser((prev) => ({ ...prev, calorieGoal: newGoal }));
+    setUser((prev) => ({ ...prev, daily_calorie_goal: newGoal }));
   };
 
   const handleUsernameUpdate = (newUsername: string) => {
@@ -41,7 +44,7 @@ export default function ProfileView() {
       </div>
 
       
-      <CalorieGoalEditor calorieGoal={user.calorieGoal} onUpdate={handleGoalUpdate} />
+      <CalorieGoalEditor calorieGoal={user.daily_calorie_goal} onUpdate={handleGoalUpdate} />
 
       
       <BMIDisplay userId={user.id} />

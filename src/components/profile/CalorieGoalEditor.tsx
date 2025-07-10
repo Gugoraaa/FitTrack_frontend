@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "../../services/api";
 
 interface Props {
@@ -7,25 +7,29 @@ interface Props {
 }
 
 export default function CalorieGoalEditor({ calorieGoal, onUpdate }: Props) {
-  const [goal, setGoal] = useState<string>(String(calorieGoal));
+  const [goal, setGoal] = useState<string>("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async () => {
-    if (goal === "") return; // prevent empty submission
-    const parsedGoal = Number(goal);
+  // ✅ Sync prop to state when it changes
+  useEffect(() => {
+    setGoal(String(calorieGoal));
+  }, [calorieGoal]);
 
+  const handleSubmit = async () => {
+    if (goal === "") return;
+    const parsedGoal = Number(goal);
     if (Number.isNaN(parsedGoal) || parsedGoal < 0) return;
 
     try {
       setLoading(true);
       const user = JSON.parse(localStorage.getItem("user") || "{}");
-
       await api.put("/profile/updateCalorieGoal", {
         userId: user.id,
         newGoal: parsedGoal,
       });
-
       onUpdate(parsedGoal);
+      const updatedUser = { ...user, daily_calorie_goal: parsedGoal };
+      localStorage.setItem("user", JSON.stringify(updatedUser));
     } catch (err) {
       console.error("Error updating goal:", err);
     } finally {
@@ -43,13 +47,10 @@ export default function CalorieGoalEditor({ calorieGoal, onUpdate }: Props) {
           value={goal}
           onChange={(e) => {
             const val = e.target.value;
-
-            
             if (val === "") {
               setGoal(val);
               return;
             }
-
             const number = Number(val);
             if (!Number.isNaN(number) && number >= 0) {
               setGoal(val);
