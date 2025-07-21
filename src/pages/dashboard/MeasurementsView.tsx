@@ -1,7 +1,7 @@
 import { useState } from "react";
-import MeasurementInputForm from "../../components/measurements/AddMeasurementForm";
-import MeasurementsTable from "../../components/measurements/MeasurementsTable";
-import MeasurementsChart from "../../components/measurements/MeasurementsChart";
+import MeasurementInputForm from "@components/measurements/AddMeasurementForm";
+import MeasurementsTable from "@components/measurements/MeasurementsTable";
+import MeasurementsChart from "@components/measurements/MeasurementsChart";
 
 export default function MeasurementsView() {
   const [reloadKey, setReloadKey] = useState(0);

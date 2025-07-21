@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import AddCardioWorkoutButton from "../../components/workouts/AddCardioSessionButton";
-import CardioWorkoutCard from "../../components/workouts/CardioSessionCard";
-import AddStrengthWorkoutButton from "../../components/workouts/AddStrengthWorkoutButton";
-import ViewAllCardioButton from "../../components/workouts/ViewAllCardioButton";
-import ViewAllStrengthButton from "../../components/workouts/ViewAllStrengthButton";
-import StrengthWorkoutCard from "../../components/workouts/StrengthWorkoutCard";
+import AddCardioWorkoutButton from "@components/workouts/AddCardioSessionButton";
+import CardioWorkoutCard from "@components/workouts/CardioSessionCard";
+import AddStrengthWorkoutButton from "@components/workouts/AddStrengthWorkoutButton";
+import ViewAllCardioButton from "@components/workouts/ViewAllCardioButton";
+import ViewAllStrengthButton from "@components/workouts/ViewAllStrengthButton";
+import StrengthWorkoutCard from "@components/workouts/StrengthWorkoutCard";
 import api from "../../services/api";
 
 type CardioWorkout = {

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import CalorieProgressCard from "../../components/nutrition/CalorieProgressCard";
-import CalorieInputForm from "../../components/nutrition/CalorieInputForm";
-import TodayFoodEntries from "../../components/nutrition/TodayFoodEntries";
+import CalorieProgressCard from "@components/nutrition/CalorieProgressCard";
+import CalorieInputForm from "@components/nutrition/CalorieInputForm";
+import TodayFoodEntries from "@components/nutrition/TodayFoodEntries";
 
 export default function NutritionView() {
   const [progressKey, setProgressKey] = useState(0);

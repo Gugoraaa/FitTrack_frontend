@@ -22,7 +22,7 @@ export default function Login() {
     localStorage.setItem("user", JSON.stringify(response.data.user));
     alert(response.data.message);
 
-    navigate("/dashboard");
+    navigate("/dashboard/summary"); 
   } catch (error: any) {
     console.error("Login error:", error.response?.data || error.message);
   }

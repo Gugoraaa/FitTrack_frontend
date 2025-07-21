@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import UserInfoCard from "../../components/profile/UserInfoCard";
-import CalorieGoalEditor from "../../components/profile/CalorieGoalEditor";
-import BMIDisplay from "../../components/profile/BMIDisplay";
-import LogoutButton from "../../components/profile/LogoutButton";
+import UserInfoCard from "@components/profile/UserInfoCard";
+import CalorieGoalEditor from "@components/profile/CalorieGoalEditor";
+import BMIDisplay from "@components/profile/BMIDisplay";
+import LogoutButton from "@components/profile/LogoutButton";
 
 export default function ProfileView() {
   const [user, setUser] = useState({
