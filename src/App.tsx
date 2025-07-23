@@ -1,4 +1,4 @@
-import { Routes, Route,Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "@pages/Login";
 import Register from "@pages/Register"; 
 import DashboardLayout from "@pages/Dashboard";
@@ -8,11 +8,12 @@ import Workouts from "@pages/dashboard/Workouts";
 import Nutrition from "@pages/dashboard/Nutrition"; 
 import Measuremnts from "@pages/dashboard/MeasurementsView"; 
 import Profile from "@pages/dashboard/Profile";
+import FitTrackLanding from "@pages/Landing";
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="/" element={<FitTrackLanding/>} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<DashboardLayout />}>
