@@ -3,6 +3,7 @@ import AddGoalButton from "@components/goals/AddGoalButon";
 import GoalCard from "@components/goals/GoalCard";
 import api from "../../services/api";
 
+
 type Goal = {
   id: number;
   name: string;
@@ -13,23 +14,24 @@ type Goal = {
 
 export default function Goals() {
   const [goals, setGoals] = useState<Goal[]>([]);
+  
 
   const fetchGoals = async () => {
     try {
+      
       const user = JSON.parse(localStorage.getItem("user") || "{}");
       const userId = user?.id;
-
-      if (!userId) return;
       
       const res = await api.post("/goals/getUserGoals", { userId });
+      if (!userId) return;
       const goalList = Array.isArray(res.data) ? res.data : res.data.goals;
       setGoals(goalList);
     } catch (err) {
       console.error("Error fetching goals:", err);
     }
   };
-
   useEffect(() => {
+    
     fetchGoals();
   }, []);
 

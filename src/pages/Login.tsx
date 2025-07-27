@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import api from "../services/api";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 type LoginFormInputs = {
   username: string;
@@ -17,25 +18,48 @@ export default function Login() {
   } = useForm<LoginFormInputs>();
 
   const onSubmit = async (data: LoginFormInputs) => {
-  try {
-    const response = await api.post("auth/login", data); // 
-    localStorage.setItem("user", JSON.stringify(response.data.user));
-    alert(response.data.message);
+    try {
+      const response = await api.post("auth/login", data, {
+        withCredentials: true,
+      });
+      localStorage.setItem("user", JSON.stringify(response.data.publicUser));
+      alert(response.data.message);
 
-    navigate("/dashboard/summary"); 
-  } catch (error: any) {
-    console.error("Login error:", error.response?.data || error.message);
-  }
-};
+      navigate("/dashboard/summary");
+    } catch (error: any) {
+      console.error("Login error:", error.response?.data || error.message);
+    }
+  };
+  useEffect(() => {
+    const checkIfLoggedIn = async () => {
+      try {
+        const res = await api.get("auth/check-auth", {
+          withCredentials: true,
+        });
+        if (res.data.authenticated) {
+          navigate("/dashboard/summary");
+        }
+      } catch (error) {
+        console.log(error)
+        alert("No está autenticado");
+      }
+    };
+
+    checkIfLoggedIn();
+  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-lg">
-        <h2 className="text-2xl font-semibold text-center mb-6 text-text">Login</h2>
+        <h2 className="text-2xl font-semibold text-center mb-6 text-text">
+          Login
+        </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-text">username</label>
+            <label className="block text-sm font-medium text-text">
+              username
+            </label>
             <input
               type="username"
               {...register("username", { required: true })}
@@ -47,7 +71,9 @@ export default function Login() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-text">Password</label>
+            <label className="block text-sm font-medium text-text">
+              Password
+            </label>
             <input
               type="password"
               {...register("password", {

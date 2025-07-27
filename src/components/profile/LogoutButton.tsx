@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
 
 export default function LogoutButton() {
   const navigate = useNavigate();
+  
 
+  
   const handleLogout = () => {
+    api.post("/auth/logout");
     localStorage.removeItem("user");
     navigate("/login"); 
   };

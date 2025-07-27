@@ -16,9 +16,9 @@ export default function TodayFoodEntries({ reloadTrigger = 0 }: { reloadTrigger?
       try {
         const user = JSON.parse(localStorage.getItem("user") || "{}");
         const user_id = user?.id;
-        if (!user_id) return;
-
+        
         const res = await api.post("/nutrition/getFoodEntriesToday", { user_id });
+        if (!user_id) return;
         setEntries(res.data.entries || []);
       } catch (err) {
         console.error("Error fetching entries:", err);
