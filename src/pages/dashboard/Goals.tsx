@@ -21,7 +21,6 @@ export default function Goals() {
       
       const user = JSON.parse(localStorage.getItem("user") || "{}");
       const userId = user?.id;
-      
       const res = await api.post("/goals/getUserGoals", { userId });
       if (!userId) return;
       const goalList = Array.isArray(res.data) ? res.data : res.data.goals;

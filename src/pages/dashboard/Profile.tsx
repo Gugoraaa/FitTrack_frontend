@@ -6,7 +6,7 @@ import LogoutButton from "@components/profile/LogoutButton";
 import api from "../../services/api"
 
 type User = {
-  id: number;
+  userID: number;
   username: string;
   created_at: string;
   daily_calorie_goal: number;
@@ -20,11 +20,11 @@ export default function ProfileView() {
       try {
         const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
         
-        const response = await api.post("/getUserData", { userID: storedUser.id }, {
+        if (!storedUser?.id) return;
+        const response = await api.post("/profile/getUserData", { userID: storedUser.id }, {
           withCredentials: true,
         });
-        if (!storedUser?.id) return;
-
+        console.log(response.data)
         setUser(response.data);
       } catch (err) {
         console.error("Error fetching user data:", err);
@@ -32,6 +32,7 @@ export default function ProfileView() {
     };
 
     fetchUserData();
+    console.log(user)
   }, []);
 
   const handleGoalUpdate = (newGoal: number) => {
@@ -53,14 +54,14 @@ export default function ProfileView() {
         <UserInfoCard
           username={user.username}
           createdAt={user.created_at}
-          userId={user.id}
+          userId={user.userID}
           onUsernameChange={handleUsernameUpdate}
         />
         <LogoutButton />
       </div>
 
       <CalorieGoalEditor calorieGoal={user.daily_calorie_goal} onUpdate={handleGoalUpdate} />
-      <BMIDisplay userId={user.id} />
+      <BMIDisplay userId={user.userID} />
     </div>
   );
 }

@@ -12,7 +12,7 @@ export default function BMIDisplay({ userId }: BMIDisplayProps) {
   const [error, setError] = useState("");
 
   useEffect(() => {
-  if (!userId || userId <= 0) return; // ← Avoid the glitch
+  if (!userId || userId <= 0) return;
 
   const fetchLatestMeasurement = async () => {
     try {
