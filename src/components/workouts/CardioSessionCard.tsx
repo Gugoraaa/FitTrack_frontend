@@ -11,7 +11,7 @@ type CardioWorkout = {
 
 type Props = {
   workout: CardioWorkout;
-  onUpdate: () => void;
+  onUpdate?: () => void;
 };
 
 function formatDate(isoDate: string): string {
@@ -19,7 +19,7 @@ function formatDate(isoDate: string): string {
   return date.toLocaleDateString("en-US"); // MM/DD/YYYY
 }
 
-export default function CardioWorkoutCard({ workout,onUpdate }: Props) {
+export default function CardioSessionCard({ workout,onUpdate }: Props) {
   return (
     <>
     <div className="bg-white rounded-lg shadow-md p-4 border border-gray-200">

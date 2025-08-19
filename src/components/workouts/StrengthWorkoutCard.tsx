@@ -24,7 +24,7 @@ type StrengthWorkout = {
 
 type Props = {
   workout: StrengthWorkout;
-  onUpdate: () => void;
+  onUpdate?: () => void;
 };
 
 export default function StrengthWorkoutCard({ workout, onUpdate }: Props) {

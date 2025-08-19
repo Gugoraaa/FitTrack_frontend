@@ -3,7 +3,7 @@ import api from "../../services/api";
 
 type Props = {
   workoutID: number;
-  onDelete: () => void;
+  onDelete?: () => void;
 };
 
 export default function DeleteCardioButton({ workoutID, onDelete }: Props) {
@@ -15,7 +15,7 @@ export default function DeleteCardioButton({ workoutID, onDelete }: Props) {
     await api.delete(`/workouts/deleteCardioSession`, {
       data: { id: workoutID},
     });
-    onDelete(); 
+    onDelete?.(); 
     setIsOpen(false);
   } catch (err) {
     console.error("Delete error:", err);
