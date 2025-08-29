@@ -3,7 +3,7 @@ import api from "../../services/api";
 
 type Props = {
   goalId: number;
-  onDelete: () => void;
+  onDelete?: () => void;
 };
 
 export default function DeleteGoalButton({ goalId, onDelete }: Props) {
@@ -15,7 +15,7 @@ export default function DeleteGoalButton({ goalId, onDelete }: Props) {
     await api.delete(`/goals/delete`, {
       data: { id: goalId },
     });
-    onDelete(); 
+    onDelete?.(); 
     setIsOpen(false);
   } catch (err) {
     console.error("Delete error:", err);

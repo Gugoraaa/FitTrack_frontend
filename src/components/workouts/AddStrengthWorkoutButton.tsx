@@ -1,12 +1,8 @@
 import { useState } from "react";
 import api from "../../services/api";
+import { type NoTypeExercise } from "src/types/workout";
 
-type Exercise = {
-  name: string;
-  sets: number | "";
-  maxWeight: number | "";
-  reps: number | "";
-};
+
 
 type Props = {
   onAdd: () => void;
@@ -15,7 +11,7 @@ type Props = {
 export default function AddStrengthWorkoutButton({ onAdd }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState("");
-  const [exercises, setExercises] = useState<Exercise[]>([
+  const [exercises, setExercises] = useState<NoTypeExercise[]>([
     { name: "", sets: "", maxWeight: "", reps: "" },
   ]);
   const [error, setError] = useState("");
@@ -28,10 +24,10 @@ export default function AddStrengthWorkoutButton({ onAdd }: Props) {
     setExercises(exercises.filter((_, i) => i !== index));
   };
 
-  const handleChange = <K extends keyof Exercise>(
+  const handleChange = <K extends keyof NoTypeExercise>(
     index: number,
     field: K,
-    value: Exercise[K]
+    value: NoTypeExercise[K]
   ) => {
     const updated = [...exercises];
     updated[index] = {
@@ -129,7 +125,7 @@ export default function AddStrengthWorkoutButton({ onAdd }: Props) {
                       />
                     </div>
 
-                    {(["sets", "maxWeight", "reps"] as (keyof Exercise)[]).map((field) => (
+                    {(["sets", "maxWeight", "reps"] as (keyof NoTypeExercise)[]).map((field) => (
                       <div className="flex flex-col" key={field}>
                         <label className="text-sm mb-1">
                           {field === "sets"

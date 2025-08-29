@@ -4,13 +4,8 @@ import CalorieGoalEditor from "@components/profile/CalorieGoalEditor";
 import BMIDisplay from "@components/profile/BMIDisplay";
 import LogoutButton from "@components/profile/LogoutButton";
 import api from "../../services/api"
+import { type User } from "src/types/user";
 
-type User = {
-  userID: number;
-  username: string;
-  created_at: string;
-  daily_calorie_goal: number;
-};
 
 export default function ProfileView() {
   const [user, setUser] = useState<User | null>(null);

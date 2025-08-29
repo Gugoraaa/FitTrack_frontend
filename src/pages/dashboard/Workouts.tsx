@@ -6,29 +6,7 @@ import ViewAllCardioButton from "@components/workouts/ViewAllCardioButton";
 import ViewAllStrengthButton from "@components/workouts/ViewAllStrengthButton";
 import StrengthWorkoutCard from "@components/workouts/StrengthWorkoutCard";
 import api from "../../services/api";
-
-type CardioWorkout = {
-  id: number;
-  user_id: number;
-  title: string;
-  kilometers: number;
-  minutes: number;
-  created_at: string;
-};
-
-type StrengthWorkout = {
-  id: number;
-  user_id: number;
-  title: string;
-  created_at: string;
-  exercises: {
-    id: number;
-    name: string;
-    sets: number;
-    max_weight: number;
-    reps: number;
-  }[];
-};
+import { type CardioWorkout, type StrengthWorkout } from "src/types/workout";
 
 export default function Workouts() {
   const [selectedTab, setSelectedTab] = useState<"cardio" | "strength">("cardio");

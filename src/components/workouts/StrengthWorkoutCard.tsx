@@ -1,26 +1,12 @@
-// src/components/workouts/StrengthWorkoutCard.tsx
 import DeleteStrengthButton from "./DeleteStrengthButton";
+import { type StrengthWorkout } from "src/types/workout";
+
 
 function formatDate(isoDate: string): string {
   const date = new Date(isoDate);
   return date.toLocaleDateString("en-US"); // MM/DD/YYYY
 }
 
-type Exercise = {
-  id: number;
-  name: string;
-  sets: number;
-  max_weight: number;
-  reps: number;
-};
-
-type StrengthWorkout = {
-  id: number;
-  user_id: number;
-  title: string;
-  created_at: string;
-  exercises: Exercise[];
-};
 
 type Props = {
   workout: StrengthWorkout;

@@ -1,16 +1,9 @@
 import { useEffect, useState } from "react";
 import AddGoalButton from "@components/goals/AddGoalButon";
 import GoalCard from "@components/goals/GoalCard";
+import {type Goal} from "../../types/goals"
 import api from "../../services/api";
 
-
-type Goal = {
-  id: number;
-  name: string;
-  end_date: string;
-  created_at: string;
-  status: string;
-};
 
 export default function Goals() {
   const [goals, setGoals] = useState<Goal[]>([]);

@@ -1,13 +1,6 @@
 import DeleteCardioButton from "./DeleteCardioButton";
+import { type CardioWorkout } from "src/types/workout";
 
-type CardioWorkout = {
-  id: number;
-  user_id: number;
-  title: string;
-  kilometers: number;
-  minutes: number;
-  created_at: string;
-};
 
 type Props = {
   workout: CardioWorkout;

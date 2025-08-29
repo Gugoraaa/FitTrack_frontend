@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import api from "../../services/api";
-
-interface Measurement {
-  date: string;
-  weight: number;
-  waist: number;
-}
+import {type MeasurementsChart} from "../../types/measurements"
 
 const formatDate = (dateStr: string): string => {
   const date = new Date(dateStr);
@@ -17,7 +12,7 @@ const formatDate = (dateStr: string): string => {
 };
 
 export default function MeasurementsChart({ reloadKey }: { reloadKey: number }) {
-  const [data, setData] = useState<Measurement[]>([]);
+  const [data, setData] = useState<MeasurementsChart[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +20,7 @@ export default function MeasurementsChart({ reloadKey }: { reloadKey: number }) 
       const userId = user?.id;
       const res = await api.get(`/measurements/getMeasurements?userId=${userId}`);
       
-      const formattedData = res.data.map((entry: Measurement) => ({
+      const formattedData = res.data.map((entry: MeasurementsChart) => ({
         ...entry,
         date: formatDate(entry.date),
       }));

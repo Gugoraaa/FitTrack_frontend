@@ -1,16 +1,10 @@
 import { useState } from "react";
 import api from "../../services/api";
-
-type Goal = {
-  id: number;
-  name: string;
-  end_date: string;
-  status: string;
-};
+import {type Goal} from "../../types/goals"
 
 type Props = {
   goal: Goal;
-  onUpdate: () => void;
+  onUpdate?: () => void;
 };
 
 export default function EditGoalButton({ goal, onUpdate }: Props) {
@@ -42,7 +36,7 @@ export default function EditGoalButton({ goal, onUpdate }: Props) {
     });
 
     setIsOpen(false);
-    onUpdate(); 
+    onUpdate?.(); 
   } catch (err: any) {
     console.error("Edit error:", err);
     setError("Failed to update goal.");

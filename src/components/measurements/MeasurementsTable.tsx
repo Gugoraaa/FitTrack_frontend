@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import { type MeasurementTable } from "src/types/measurements";
 
-interface Measurement {
-  id: number;
-  date: string;
-  weight: number;
-  waist: number;
-  chest: number;
-  hips: number;
-  height: number;
-}
 
 const formatDate = (dateStr: string): string => {
   const date = new Date(dateStr);
@@ -20,7 +12,7 @@ const formatDate = (dateStr: string): string => {
 };
 
 export default function MeasurementsTable({ reloadKey }: { reloadKey: number }) {
-  const [entries, setEntries] = useState<Measurement[]>([]);
+  const [entries, setEntries] = useState<MeasurementTable[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
