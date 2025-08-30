@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from "../../services/api";
 import StrengthWorkoutCard from "./StrengthWorkoutCard";
-import { type StrengthWorkout } from "src/types/workout";
+
 
 export default function ViewAllStrengthButton() {
   const [isOpen, setIsOpen] = useState(false);

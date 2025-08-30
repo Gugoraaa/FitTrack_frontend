@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
-import { type Entry } from "src/types/nutrition";
+
 
 export default function TodayFoodEntries({ reloadTrigger = 0 }: { reloadTrigger?: number }) {
   const [entries, setEntries] = useState<Entry[]>([]);

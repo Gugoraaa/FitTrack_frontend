@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../../services/api";
-import { type NoTypeExercise } from "src/types/workout";
+
 
 
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import api from "../../services/api";
-import {type MeasurementsChart} from "../../types/measurements"
+
 
 const formatDate = (dateStr: string): string => {
   const date = new Date(dateStr);

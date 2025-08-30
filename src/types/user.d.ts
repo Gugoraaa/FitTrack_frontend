@@ -1,4 +1,4 @@
-export type User = {
+declare type User = {
   userID: number;
   username: string;
   created_at: string;

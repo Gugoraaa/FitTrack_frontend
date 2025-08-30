@@ -1,5 +1,5 @@
 import DeleteStrengthButton from "./DeleteStrengthButton";
-import { type StrengthWorkout } from "src/types/workout";
+
 
 
 function formatDate(isoDate: string): string {

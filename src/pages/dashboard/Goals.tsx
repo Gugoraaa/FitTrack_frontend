@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import AddGoalButton from "@components/goals/AddGoalButon";
 import GoalCard from "@components/goals/GoalCard";
-import {type Goal} from "../../types/goals"
 import api from "../../services/api";
 
 

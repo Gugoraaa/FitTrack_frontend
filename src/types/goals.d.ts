@@ -1,5 +1,5 @@
 
-export type Goal = {
+declare type Goal = {
   id: number;
   name: string;
   end_date: string;

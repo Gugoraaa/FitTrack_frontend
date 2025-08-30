@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from "../../services/api";
 import CardioWorkoutCard from "./CardioSessionCard";
-import { type CardioWorkout } from "src/types/workout";
+
 
 export default function ViewAllCardioButton() {
   const [isOpen, setIsOpen] = useState(false);

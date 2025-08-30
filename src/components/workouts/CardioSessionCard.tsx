@@ -1,5 +1,5 @@
 import DeleteCardioButton from "./DeleteCardioButton";
-import { type CardioWorkout } from "src/types/workout";
+
 
 
 type Props = {

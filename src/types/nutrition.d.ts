@@ -1,4 +1,4 @@
-export type Entry ={
+declare type Entry ={
   id: number;
   description: string;
   calories: number;

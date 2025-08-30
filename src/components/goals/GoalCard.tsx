@@ -1,6 +1,6 @@
 import EditGoalButton from "./EditGoalButon";
 import DeleteGoalButton from "./DeleteGoalButon";
-import {type Goal} from "../../types/goals"
+
 
 type Props = {
   goal: Goal;

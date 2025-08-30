@@ -1,4 +1,4 @@
-export type CardioWorkout = {
+declare type CardioWorkout = {
   id: number;
   user_id: number;
   title: string;
@@ -7,7 +7,7 @@ export type CardioWorkout = {
   created_at: string;
 };
 
-type Exercise = {
+declare type Exercise = {
   id: number;
   name: string;
   sets: number;
@@ -15,7 +15,7 @@ type Exercise = {
   reps: number;
 };
 
-export type StrengthWorkout = {
+declare type StrengthWorkout = {
   id: number;
   user_id: number;
   title: string;
@@ -23,7 +23,7 @@ export type StrengthWorkout = {
   exercises:Exercise[];
 };
 
-type NoTypeExercise = {
+declare type NoTypeExercise = {
   name: string;
   sets: number | "";
   maxWeight: number | "";

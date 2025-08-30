@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
-import { type MeasurementTable } from "src/types/measurements";
+
 
 
 const formatDate = (dateStr: string): string => {

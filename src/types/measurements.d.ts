@@ -1,10 +1,10 @@
-export type MeasurementsChart ={
+declare type MeasurementsChart ={
   date: string;
   weight: number;
   waist: number;
 }
 
-export type MeasurementTable ={
+declare type MeasurementTable ={
   id: number;
   date: string;
   weight: number;

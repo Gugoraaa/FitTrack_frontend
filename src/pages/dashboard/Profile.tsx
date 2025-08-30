@@ -4,7 +4,7 @@ import CalorieGoalEditor from "@components/profile/CalorieGoalEditor";
 import BMIDisplay from "@components/profile/BMIDisplay";
 import LogoutButton from "@components/profile/LogoutButton";
 import api from "../../services/api"
-import { type User } from "src/types/user";
+
 
 
 export default function ProfileView() {

@@ -3,7 +3,7 @@ import api from "../../services/api";
 import CardioSessionCard from "@components/workouts/CardioSessionCard";
 import StrengthWorkoutCard from "@components/workouts/StrengthWorkoutCard";
 import GoalCard from "@components/goals/GoalCard";
-import { type CardioWorkout,  type StrengthWorkout } from "src/types/workout";
+
 
 
 
